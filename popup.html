@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header>
+    <h1>CheapVPN <span id="proBadge" class="pro-tag" hidden>PRO</span></h1>
+    <label class="switch"><input type="checkbox" id="toggle"><span></span></label>
+  </header>
+  <p id="status" class="status">Disconnected</p>
+
+  <section>
+    <h2>Route</h2>
+    <div class="seg">
+      <button type="button" data-mode="all">All sites</button>
+      <button type="button" data-mode="rules">Chosen sites <span class="pro-tag">PRO</span></button>
+    </div>
+  </section>
+
+  <section id="upsell" class="upsell" hidden>
+    <b>CheapVPN Pro</b> <span class="price"></span> one-time
+    <ul>
+      <li>Per-site rules: only chosen sites use the proxy</li>
+      <li>A different server for each site</li>
+      <li>Server health &amp; speed test, one-click fastest server</li>
+      <li>Supports an independent developer</li>
+    </ul>
+    <button id="buyBtn">Unlock Pro</button>
+    <button id="restoreBtn" class="link">Already paid? Log in</button>
+    <p id="payMsg" class="status"></p>
+  </section>
+
+  <section id="rulesPanel" hidden>
+    <h2>Site rules</h2>
+    <ul id="rulesList" class="rules"></ul>
+    <form id="ruleForm">
+      <input id="rulePattern" placeholder="example.com or *.example.com" required>
+      <div class="row">
+        <select id="ruleServer" required></select>
+        <button type="submit" class="small">Add</button>
+      </div>
+    </form>
+    <small>Matching sites (and their subdomains) use the chosen server. Everything else connects directly.</small>
+  </section>
+
+  <section id="serverSection">
+    <h2 id="serverHeading">Server</h2>
+    <select id="serverSelect"></select>
+    <button id="deleteBtn" class="secondary">Delete selected</button>
+  </section>
+
+  <section id="healthSection">
+    <h2>Server health <span class="pro-tag">PRO</span></h2>
+    <ul id="healthList" class="health"></ul>
+    <div class="row">
+      <button id="testAllBtn" class="secondary">Test all</button>
+      <button id="fastestBtn" class="secondary">Use fastest</button>
+    </div>
+  </section>
+
+  <details>
+    <summary>Add server</summary>
+    <form id="addForm">
+      <input id="name" placeholder="Name (e.g. Frankfurt VPS)" required>
+      <select id="scheme">
+        <option value="socks5">SOCKS5</option>
+        <option value="http">HTTP</option>
+        <option value="https">HTTPS</option>
+        <option value="socks4">SOCKS4</option>
+      </select>
+      <div class="row">
+        <input id="host" placeholder="Host / IP" required>
+        <input id="port" type="number" placeholder="Port" min="1" max="65535" required>
+      </div>
+      <input id="username" placeholder="Username (HTTP/HTTPS only, optional)">
+      <input id="password" type="password" placeholder="Password (optional)">
+      <button type="submit">Add</button>
+    </form>
+  </details>
+
+  <details id="bypassDetails">
+    <summary>Bypass list</summary>
+    <textarea id="bypass" rows="4"></textarea>
+    <small>One per line. Example: *.google.com, 192.168.0.0/16</small>
+    <button id="saveBypass" class="secondary">Save</button>
+  </details>
+
+  <button id="checkIp" class="secondary">Check my IP</button>
+  <p id="ip" class="status"></p>
+  <script src="config.js"></script>
+  <script src="ExtPay.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

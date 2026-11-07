@@ -1,0 +1,47 @@
+body { width: 300px; font: 13px system-ui, sans-serif; margin: 0; padding: 12px; color: #111; }
+header { display: flex; justify-content: space-between; align-items: center; }
+h1 { font-size: 16px; margin: 0; }
+h2 { font-size: 12px; text-transform: uppercase; color: #666; margin: 12px 0 4px; }
+input, select, textarea, button { width: 100%; box-sizing: border-box; margin: 3px 0; padding: 6px; font: inherit; border: 1px solid #ccc; border-radius: 6px; }
+button { background: #2563eb; color: #fff; border: none; cursor: pointer; }
+button.secondary { background: #e5e7eb; color: #111; }
+.row { display: flex; gap: 6px; } .row input:last-child { width: 90px; }
+details { margin-top: 10px; } summary { cursor: pointer; font-weight: 600; }
+.status { margin: 6px 0; color: #666; } .status.on { color: #16a34a; font-weight: 600; }
+small { color: #888; }
+.switch { position: relative; width: 42px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch span { position: absolute; inset: 0; background: #ccc; border-radius: 24px; transition: .2s; cursor: pointer; }
+.switch span::before { content: ""; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+.switch input:checked + span { background: #16a34a; }
+.switch input:checked + span::before { transform: translateX(18px); }
+.pro-tag { font-size: 9px; font-weight: 800; background: #f59e0b; color: #fff; padding: 1px 4px; border-radius: 4px; vertical-align: middle; letter-spacing: .5px; }
+.seg { display: flex; gap: 0; background: #e5e7eb; border-radius: 8px; padding: 3px; }
+.seg button { margin: 0; background: transparent; color: #374151; border-radius: 6px; }
+.seg button.active { background: #fff; color: #111; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.upsell { margin-top: 10px; padding: 10px; border: 1px solid #fcd34d; background: #fffbeb; border-radius: 8px; }
+.upsell ul { margin: 6px 0; padding-left: 18px; } .upsell li { margin: 2px 0; }
+.upsell .price { font-weight: 700; color: #b45309; }
+button.link { background: none; color: #2563eb; padding: 2px; text-decoration: underline; }
+button.small { width: 70px; flex: none; }
+.row select { flex: 1; }
+.rules { list-style: none; padding: 0; margin: 0 0 4px; }
+.rules li { display: flex; align-items: center; gap: 6px; padding: 5px 6px; border: 1px solid #e5e7eb; border-radius: 6px; margin: 3px 0; }
+.rules li .pat { font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rules li .via { color: #6b7280; font-size: 11px; }
+.rules li button { width: auto; margin: 0; padding: 0 6px; background: none; color: #9ca3af; font-size: 15px; }
+.rules .empty { color: #9ca3af; border-style: dashed; justify-content: center; }
+
+.health { list-style: none; padding: 0; margin: 0 0 4px; }
+.health li { display: grid; grid-template-columns: 10px 1fr auto; gap: 2px 8px; align-items: center; padding: 6px; border: 1px solid #e5e7eb; border-radius: 6px; margin: 3px 0; }
+.health li.active { border-color: #86efac; background: #f0fdf4; }
+.health .dot { width: 9px; height: 9px; border-radius: 50%; background: #d1d5db; }
+.health .dot.ok { background: #16a34a; } .health .dot.slow { background: #f59e0b; } .health .dot.down { background: #dc2626; }
+.health .dot.testing { background: #60a5fa; animation: pulse 1s infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+.health .hname { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.health .metric { font-size: 11px; color: #374151; text-align: right; white-space: nowrap; }
+.health .sub { grid-column: 2 / 4; font-size: 11px; color: #6b7280; }
+.health .sub.err { color: #dc2626; }
+.row button { flex: 1; }
+.health .empty { display: block; color: #9ca3af; border-style: dashed; text-align: center; }

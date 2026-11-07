@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "CheapVPN – Proxy & VPN Switcher",
+  "version": "1.2.0",
+  "description": "Route Chrome through your own proxy or SSH tunnel in one click. SOCKS5, HTTP & HTTPS. No tracking. Pro: per-site rules.",
+  "permissions": [
+    "proxy",
+    "storage",
+    "webRequest",
+    "webRequestAuthProvider"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CheapVPN",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "short_name": "CheapVPN",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://extensionpay.com/*"
+      ],
+      "js": [
+        "ExtPay.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
